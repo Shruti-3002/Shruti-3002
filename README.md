@@ -1,3 +1,5 @@
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0A66C2,100:1e3a8a&height=140&section=header&animation=fadeIn" alt="" />
+
 <h1 align="center">Hi, I'm Shruti Gupta 👋</h1>
 
 <p align="center">
@@ -180,10 +182,26 @@ Includes load testing and written system-design docs.
 
 ---
 
-### 📊 GitHub
+### 🐍 Contributions
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Shruti-3002&hide_border=true&ring=0A66C2&fire=0A66C2&currStreakLabel=0A66C2" alt="contribution streak" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Shruti-3002/Shruti-3002/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Shruti-3002/Shruti-3002/output/github-snake.svg" />
+    <img alt="contribution snake" src="https://raw.githubusercontent.com/Shruti-3002/Shruti-3002/output/github-snake.svg" />
+  </picture>
 </p>
 
-<p align="center"><i>Open to backend and distributed systems roles — <a href="mailto:gshruti844@gmail.com">say hi</a>.</i></p>
+---
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=4000&pause=800&color=0A66C2&center=true&vCenter=true&width=520&lines=Open+to+backend+%26+distributed+systems+roles;Let's+build+something+that+survives+load" alt="" />
+</p>
+
+<p align="center">
+  <a href="mailto:gshruti844@gmail.com">
+    <img src="https://img.shields.io/badge/Say_hi-0A66C2?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+  </a>
+</p>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:1e3a8a,100:0A66C2&height=120&section=footer" alt="" />
