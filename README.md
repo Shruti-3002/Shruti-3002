@@ -26,6 +26,9 @@ I build distributed backend systems in **Java** and **Spring Boot**. What intere
 is the part that breaks under load — race conditions, transaction isolation, and the gap
 between *"it works"* and *"it works when 500 people do it at the same instant."*
 
+Recently: a flash-sale system that survives a 500-way race, a six-service microservices platform
+on Kafka and Neo4j, and a real-time chat app running on AWS.
+
 ---
 
 ### 🔨 Featured Work
@@ -64,31 +67,74 @@ rejecting unadmitted traffic at the edge · 46 Testcontainers integration tests.
 </details>
 
 <details>
-<summary><b>🚦 Rate Limiter</b> — request throttling in Java</summary>
+<summary><b>🔗 LinkedIn Microservices</b> — a social platform as six independent Spring Boot services</summary>
+
 <br>
 
-*(add a line here: which algorithm, and what it protects)*
+Six services behind a **Spring Cloud Gateway**, discovering each other through **Netflix Eureka**:
 
-**[→ View repository](https://github.com/Shruti-3002/Rate-Limiter)**
+```
+api-gateway ──▶ user-service        auth, JWT issuing
+            ├─▶ posts-service       content + engagement
+            ├─▶ connection-service  social graph in Neo4j
+            └─▶ notification-service consumes Kafka events
+                discovery-server    Eureka registry
+```
+
+**What made it interesting:** the social graph lives in **Neo4j** rather than PostgreSQL, because
+first-degree connection traversal is what graph databases are actually for. Posts, likes and
+connection requests publish **Kafka** events that the notification service consumes asynchronously,
+so a slow notification never blocks a post. JWT validation happens once, at the gateway.
+
+<p>
+<img src="https://img.shields.io/badge/Java_21-ED8B00?style=flat-square&logo=openjdk&logoColor=white" />
+<img src="https://img.shields.io/badge/Spring_Cloud-6DB33F?style=flat-square&logo=spring&logoColor=white" />
+<img src="https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white" />
+<img src="https://img.shields.io/badge/Neo4j-4581C3?style=flat-square&logo=neo4j&logoColor=white" />
+<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
+<img src="https://img.shields.io/badge/Eureka-6DB33F?style=flat-square&logo=spring&logoColor=white" />
+</p>
+
+**[→ View repository](https://github.com/Shruti-3002/linkedInApp)**
+
 </details>
 
 <details>
-<summary><b>🛒 Marketplace Service</b> — Java backend service</summary>
+<summary><b>💬 Cirql (TripChat)</b> — real-time group chat for travellers, full stack and deployed</summary>
+
 <br>
 
-*(add a line here: what it does and the interesting part)*
+**React 19 + TypeScript** front end, **Spring Boot** back end, real-time messaging over
+**WebSocket/STOMP**. Designed for 1,000 daily active users with sub-100ms delivery.
 
-**[→ View repository](https://github.com/Shruti-3002/marketplace_service)**
+**What made it interesting:** messages are persisted through a **Kafka outbox pattern**, so a
+message is never acknowledged to the sender unless it is durably stored — no lost messages if a
+consumer dies mid-flight. Redis backs presence and unread counts. Runs on **AWS ECS Fargate**
+behind CloudFront and an ALB, with RDS, ElastiCache and MSK Serverless, deployed by GitHub Actions.
+Includes load testing and written system-design docs.
+
+<p>
+<img src="https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" />
+<img src="https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white" />
+<img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" />
+<img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white" />
+</p>
+
+**[→ View repository](https://github.com/Shruti-3002/cirql)**
+
 </details>
 
-<details>
-<summary><b>🌦️ Weather Service</b> — API integration service</summary>
-<br>
+---
 
-*(add a line here: what it integrates and how it handles failure)*
+### 📦 Also on my profile
 
-**[→ View repository](https://github.com/Shruti-3002/weather-service)**
-</details>
+**[Rate Limiter](https://github.com/Shruti-3002/Rate-Limiter)** · request throttling in Java &nbsp;•&nbsp;
+**[Marketplace Service](https://github.com/Shruti-3002/marketplace_service)** · Java backend service &nbsp;•&nbsp;
+**[Weather Service](https://github.com/Shruti-3002/weather-service)** · API integration &nbsp;•&nbsp;
+**[Budget Manager](https://github.com/Shruti-3002/budget-manager)** &nbsp;•&nbsp;
+**[Movie Recommendation](https://github.com/Shruti-3002/Movie-Recommendation-)** · Python
 
 ---
 
@@ -104,6 +150,7 @@ rejecting unadmitted traffic at the edge · 46 Testcontainers integration tests.
 <p>
 <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" />
 <img src="https://img.shields.io/badge/Spring_Cloud-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />
+<img src="https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white" />
 <img src="https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white" />
 <img src="https://img.shields.io/badge/REST_APIs-005571?style=for-the-badge&logo=fastapi&logoColor=white" />
 </p>
@@ -111,7 +158,16 @@ rejecting unadmitted traffic at the edge · 46 Testcontainers integration tests.
 <p>
 <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
 <img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white" />
+<img src="https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white" />
+<img src="https://img.shields.io/badge/Neo4j-4581C3?style=for-the-badge&logo=neo4j&logoColor=white" />
 <img src="https://img.shields.io/badge/Flyway-CC0200?style=for-the-badge&logo=flyway&logoColor=white" />
+</p>
+
+<p>
+<img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white" />
+<img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" />
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
 </p>
 
 <p>
