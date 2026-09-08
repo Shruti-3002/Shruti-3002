@@ -24,12 +24,21 @@
 
 ### 👩‍💻 About
 
-I build distributed backend systems in **Java** and **Spring Boot**. What interests me most
-is the part that breaks under load — race conditions, transaction isolation, and the gap
-between *"it works"* and *"it works when 500 people do it at the same instant."*
+Backend engineer working in **Java** and **Spring Boot**, focused on distributed systems —
+service decomposition, event-driven architecture with **Kafka**, and the concurrency problems that
+only show up under load.
 
-Recently: a flash-sale system that survives a 500-way race, a six-service microservices platform
-on Kafka and Neo4j, and a real-time chat app running on AWS.
+I build end to end: REST APIs and inter-service communication, choosing a datastore for the shape
+of the data rather than out of habit (**PostgreSQL** for transactions, **Redis** for hot state,
+**Neo4j** for graphs), real-time delivery over WebSockets, and getting it deployed on **AWS** with
+CI/CD. I test against real databases in containers instead of mocks, because the bugs worth
+catching — race conditions, lost updates, transaction isolation — don't reproduce anywhere else.
+
+I also work across the stack when a project needs it: **React 19 + TypeScript** for the front end,
+Docker and GitHub Actions for everything around it.
+
+What interests me most is the gap between *"it works"* and *"it works when 500 people do it at the
+same instant."*
 
 ---
 
